@@ -1,0 +1,2 @@
+ls >> directory.html
+xdg-open directory.html
