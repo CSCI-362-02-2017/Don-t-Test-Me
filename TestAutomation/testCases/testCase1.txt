@@ -1,7 +1,0 @@
-1
-This is a description of a test
-TestedModel
-tested_method
-kyle sam kenneth
-kyle sam kenneth
-testCase1
