@@ -24,12 +24,12 @@
 	# Add test model to HTML (line 3 of file)
 	# Add test method to HTML (line 4 of file)
 	# Add test params to HTML (line 5 of file)
-	# Get Oracle/Executable/Temp Filename (line 6 of file)
+	# Get Oracle/Executable Filename (line 6 of file)
 	# Read oracle value from ./oracles/<filename>Oracle.txt
-	# Execute ruby script and pass params and oracle value
+	# Execute ruby script and pass params and oracle value, assign result
 	# <TEST RUNS>
-	# Read Test Result from ./temp/<filename>Results.txt
-	# Add test result to HTML
+	# Compare result to Oracle
+	# Add pass/fail to HTML
 	# Close row in HTML
 
 # Close HTML tags
