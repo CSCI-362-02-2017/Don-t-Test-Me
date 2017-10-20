@@ -1,0 +1,6 @@
+10
+Calculates the points to be deducted when the missing submission deduction is 25%, the points possible is 9000 points, and the grading scale is not Pass or Fail
+LatePolicy
+missing_points_deducted(points_possible, grading_type)
+25 9000 string
+testCase10

@@ -1,7 +1,6 @@
 1
-This is a description of a test
-TestedModel
-tested_method
-kyle sam kenneth
-kyle sam kenneth
+Converts a score of 0 to a grade when the grading scale is [["Pass",50],["Fail",0]]
+Course
+score_to_grade(score)
+0 [["Pass",50],["Fail,0]]
 testCase1

@@ -1,0 +1,6 @@
+2
+Converts a score of 25 to a grade when the grading scale is [["Pass",50],["Fail",0]]
+Course
+score_to_grade(score)
+25 [["Pass",50],["Fail",0]]
+testCase2
