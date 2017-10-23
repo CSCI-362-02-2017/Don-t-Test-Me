@@ -10,7 +10,7 @@ require 'json'
 
 # Model:	Course
 # Method:	#score_to_grade
-# ARGC:		2
+# ARGC:	2
 # Params:	25 [["Pass",0.50],["Fail",0.0]]
 # Expect:	'Fail'
 class TestCase2 < Testatron
