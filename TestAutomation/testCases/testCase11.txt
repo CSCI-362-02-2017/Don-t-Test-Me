@@ -1,0 +1,6 @@
+11
+Calculates points when the missing submission deduction is 100%, the points possible is 80 points, and the grading scale is Pass or Fail
+LatePolicy
+points_for_missing(points_possible, grading_type)
+100 80 pass_fail
+testCase11
