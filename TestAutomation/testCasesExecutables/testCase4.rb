@@ -1,3 +1,12 @@
+# Team Name:				Don't Test Me
+# Test Number:			4
+# Test Description:	Converts a score of 50 to a grade when the grading scale is [["Pass",50],["Fail",0]]
+# Test Model:				Course
+# Test Method:			#score_to_grade
+# Test ARGC:				2
+# Test Params:			50 [["Pass",0.50],["Fail",0.0]]
+# Test Expect:			Pass
+
 # Require Testing Class
 require_relative '../project/testatron'
 
@@ -8,11 +17,6 @@ require_relative '../project/grading_standard'
 # Require Necessary Libraries
 require 'json'
 
-# Model:	Course
-# Method:	#score_to_grade
-# ARGC:		2
-# Params:	50 [["Pass",0.50],["Fail",0.0]]
-# Expect:	'Pass'
 class TestCase4 < Testatron
   
 	def initialize
