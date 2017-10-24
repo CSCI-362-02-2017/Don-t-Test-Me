@@ -1,4 +1,4 @@
-3
+03
 Converts a score of 49.999 to a grade when the grading scale is [["Pass",50],["Fail",0]]
 Course
 score_to_grade(score)
