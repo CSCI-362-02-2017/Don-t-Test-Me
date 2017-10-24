@@ -4,7 +4,7 @@
 # readarray -t array < ./testCases/testCase0.txt.example
 # ruby ../testCasesExecutables/${array[5]}.rb.example ${array[4]}
 
-cd ../testCases
+cd testCases/
 for f in testCase01.txt testCase02.txt testCase03.txt testCase04.txt testCase05.txt
 do
 	readarray -t array < $f
