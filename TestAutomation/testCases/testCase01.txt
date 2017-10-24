@@ -1,7 +1,7 @@
-1
+01
 Converts a score of 0 to a grade when the grading scale is [["Pass",50],["Fail",0]]
 Course
 score_to_grade(score)
 0 [["Pass",0.5],["Fail",0.0]]
-testCase1
+testCase01
 
