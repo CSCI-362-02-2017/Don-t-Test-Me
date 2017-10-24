@@ -3,4 +3,4 @@ Calculates the points to be deducted when the missing submission deduction is 0%
 LatePolicy
 missing_points_deducted(points_possible, grading_type)
 0 100 string
-testCase8
+testCase08
