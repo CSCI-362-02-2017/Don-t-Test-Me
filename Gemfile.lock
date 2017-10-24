@@ -106,9 +106,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (= 4.2)
   activerecord-tableless
-  rails (= 4.2)
+  rails (~> 4.2)
   ratom-nokogiri (= 0.10.6)
 
 BUNDLED WITH
