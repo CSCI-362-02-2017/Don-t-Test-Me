@@ -1,11 +1,7 @@
-# Team Name:				Don't Test Me
-# Test Number:			3
-# Test Description:	Converts a score of 49.999 to a grade when the grading scale is [["Pass",50],["Fail",0]]
-# Test Model:				Course
-# Test Method:			#score_to_grade
-# Test ARGC:				2
-# Test Params:			49.999 [["Pass",0.50],["Fail",0.0]]
-# Test Expect:			Fail
+#=======================================================#
+# Team Name:    Don't Test Me                           #
+# Team Members: Kenneth Dela Cruz, Kyle Glick, Sam Word #
+#=======================================================#
 
 # Require Testing Class
 require_relative '../project/testatron'
@@ -17,7 +13,7 @@ require_relative '../project/grading_standard'
 # Require Necessary Libraries
 require 'json'
 
-class TestCase3 < Testatron
+class CourseScoreToGradeTest < Testatron
   
 	def initialize
 		super(2)
@@ -28,10 +24,10 @@ class TestCase3 < Testatron
 		standard = GradingStandard.new()
 		standard.data = JSON.parse(@params[1])
 		course.grading_standard = standard
-		
+
 		super(course.score_to_grade(@params[0].to_i))
 	end
 end
 
-TestCase3.new().run()
+CourseScoreToGradeTest.new().run()
 

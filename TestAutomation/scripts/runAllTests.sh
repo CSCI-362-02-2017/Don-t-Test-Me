@@ -1,8 +1,8 @@
-#=====================================================================#
-# Team Name: Don't Test Me                                            #
-# Team Members: Kenneth Dela Cruz, Kyle Glick, Sam Word               #
-# Run From:  Don-t-Test-Me/TestAutomation as ./scripts/runAllTests.sh #
-#=====================================================================#
+#========================================================================#
+# Team Name:    Don't Test Me                                            #
+# Team Members: Kenneth Dela Cruz, Kyle Glick, Sam Word                  #
+# Run From:     Don-t-Test-Me/TestAutomation as ./scripts/runAllTests.sh #
+#========================================================================#
 
 rm -f ./reports/testReport.html
 # TODO: Clear all files from ./temp/
@@ -16,7 +16,7 @@ for f in testCase01.txt testCase02.txt testCase03.txt testCase04.txt testCase05.
 do
 	readarray -t array < $f
         
-        IFS=';' read result methodReturn <<< "$(ruby ../testCasesExecutables/${array[5]}.rb "${array[4]}" "$(cat ../oracles/${array[5]}.txt)")"
+        IFS=';' read result methodReturn <<< "$(ruby ../testCasesExecutables/${array[6]}.rb "${array[4]}" "${array[5]}")"
 	
 	if [ $result == "Pass" ]; then
 		class="success"
@@ -30,7 +30,7 @@ do
 	echo "<td>${array[1]}</td>" >> ../reports/testReport.html
 	echo "<td>${array[4]}</td>" >> ../reports/testReport.html
 	# Use these once we can capture the return value
-	echo "<td>$(cat ../oracles/${array[5]}.txt)</td>" >> ../reports/testReport.html
+	echo "<td>${array[5]}</td>" >> ../reports/testReport.html
 	echo "<td>${methodReturn}</td>" >> ../reports/testReport.html
 	echo "<td>${result}</td></tr>" >> ../reports/testReport.html
 
