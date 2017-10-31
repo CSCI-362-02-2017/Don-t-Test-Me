@@ -1,0 +1,6 @@
+17
+Correctly calculates a grade on a letter-grade assignment
+Assignment
+score_to_grade(score=0.0, given_grade=nil)
+letter_grade 10 8.7
+testCase17
