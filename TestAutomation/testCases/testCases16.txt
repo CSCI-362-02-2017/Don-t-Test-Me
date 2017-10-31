@@ -1,6 +1,0 @@
-16
-Assigns an incomplete grade when the score provided is nil for a pass-fail assignment
-Assignment
-score_to_grade(score=0.0, given_grade=nil)
-pass_fail 0.0 nil
-testCase16

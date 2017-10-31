@@ -1,6 +1,0 @@
-22
-Ignores pass-fail assignments
-LatePolicy
-points_deducted(score: nil, possible: 0.0, late_fore: 0.0, grading_type: nil)
-5.0 hour 10 nil 1 day pass_fail
-testCase22
