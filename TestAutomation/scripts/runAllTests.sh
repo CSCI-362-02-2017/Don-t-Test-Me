@@ -15,8 +15,9 @@ cd testCases/
 for f in testCase01.txt testCase02.txt testCase03.txt testCase04.txt testCase05.txt
 do
 	readarray -t array < $f
-
-	result=$(ruby ../testCasesExecutables/${array[5]}.rb "${array[4]}" "$(cat ../oracles/${array[5]}.txt)")
+        
+        IFS=';' read result methodReturn <<< "$(ruby ../testCasesExecutables/${array[5]}.rb "${array[4]}" "$(cat ../oracles/${array[5]}.txt)")"
+	
 	if [ $result == "Pass" ]; then
 		class="success"
 
@@ -29,12 +30,14 @@ do
 	echo "<td>${array[1]}</td>" >> ../reports/testReport.html
 	echo "<td>${array[4]}</td>" >> ../reports/testReport.html
 	# Use these once we can capture the return value
-	#echo "<td>$(cat ../oracles/${array[5]}.txt)</td>" >> ../reports/testReport.html
-	#echo "<td>Expected Output</td>" >> ../reports/testReport.html
+	echo "<td>$(cat ../oracles/${array[5]}.txt)</td>" >> ../reports/testReport.html
+	echo "<td>${methodReturn}</td>" >> ../reports/testReport.html
 	echo "<td>${result}</td></tr>" >> ../reports/testReport.html
+
 done
 
 cd ..
 cat ./scripts/reportFooter.html >> ./reports/testReport.html
 
 xdg-open ./reports/testReport.html
+

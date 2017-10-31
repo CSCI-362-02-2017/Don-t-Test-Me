@@ -8,7 +8,7 @@ class Testatron
 	@params = nil
 	@expect = nil
 	@result = nil
-		
+	
 	# Method: 			initialize(<int> argc)
 	# Description:	Retrieves parameters from ARGV and verifies the parameter count using argc.
 	# Usage:				From the subclass, call super(<expected_argument_count>) at the beginning of the initializer.
@@ -18,12 +18,13 @@ class Testatron
 	end
   
 	# Method:				run(result)
-	#	Description:	Returns the result of the test, either "Pass" or "Fail" for runAllTest.sh to retrieve.
+	#	Description:	Returns the result of the test, either "Pass" or "Fail" followed by the output of the method for runAllTest.sh to retrieve.
 	# Usage:				From the subclass, call super(<resulting_expression>) at the end of the run method.
 	# Exceptions:		The result of the test is not a boolean value
-	def run(result)
-		raise 'Invalid Test Result' if [TrueClass, FalseClass].exclude?(result.class)
-		puts(result ? 'Pass' : 'Fail')
+	def run(output)
+    @result = output == @expect ? 'Pass' : 'Fail'
+
+		puts "#{@result};#{output}"
 	end
   
 	private
