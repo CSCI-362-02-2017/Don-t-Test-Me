@@ -28,8 +28,8 @@ class TestCase2 < Testatron
 		standard = GradingStandard.new()
 		standard.data = JSON.parse(@params[1])
 		course.grading_standard = standard
-		@return = course.score_to_grade(@params[0].to_i)		
-		super( @return == @expect)
+		
+		super(course.score_to_grade(@params[0].to_i))
 	end
 end
 

@@ -15,16 +15,9 @@ cd testCases/
 for f in testCase01.txt testCase02.txt testCase03.txt testCase04.txt testCase05.txt
 do
 	readarray -t array < $f
-
-	testReturn=$(ruby ../testCasesExecutables/${array[5]}.rb "${array[4]}" "$(cat ../oracles/${array[5]}.txt)")
-
-	#Stores "Pass" or "Fail" into $result
-	result=$( echo "${testReturn}" | cut -c 1-4)
-
-	#Removes $result from the string $testReturn to get the return value
-	# of the method and stores it into $methodReturn
-	methodReturn=$( echo ${testReturn//${result} /})
-
+        
+        IFS=';' read result methodReturn <<< "$(ruby ../testCasesExecutables/${array[5]}.rb "${array[4]}" "$(cat ../oracles/${array[5]}.txt)")"
+	
 	if [ $result == "Pass" ]; then
 		class="success"
 
