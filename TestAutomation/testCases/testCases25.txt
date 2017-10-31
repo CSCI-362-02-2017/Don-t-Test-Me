@@ -1,0 +1,6 @@
+25
+Correctly deducts points on a per-day basis
+LatePolicy
+points_deducted(score: nil, possible: 0.0, late_for: 0.0, grading_type: nil)
+15.0 day 1000 1000 3 days points
+testCase25

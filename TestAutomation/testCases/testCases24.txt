@@ -1,0 +1,6 @@
+24
+Correctly deducts points on a per-hour basis
+LatePolicy
+points_deducted(score: nil, possible: 0.0, late_for: 0.0, grading_type: nil)
+5.0 hour 1000 1000 12 hours points
+testCase24
