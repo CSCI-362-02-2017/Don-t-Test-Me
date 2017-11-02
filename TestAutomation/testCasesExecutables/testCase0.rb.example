@@ -1,9 +1,0 @@
-class TestClass
-	def self.run
-		ARGV.each do |arg|
-			puts arg
-		end
-	end
-end
-
-TestClass.run

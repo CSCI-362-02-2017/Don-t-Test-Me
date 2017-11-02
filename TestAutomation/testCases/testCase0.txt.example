@@ -1,6 +1,7 @@
-1
-This is a description of a test
-TestModel
-test_method
-ken kyle sam
-testCase0
+TESTID
+TEST REQUIREMENT/DESCRIPTION GOES HERE
+TESTMODEL
+TESTMETHOD
+PARAM PARAM PARAM
+ORACLE
+DRIVER_TEST
