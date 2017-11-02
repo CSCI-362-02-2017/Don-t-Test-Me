@@ -3,4 +3,5 @@ Converts a score of 100 to a grade when the grading scale is [["Pass",50],["Fail
 Course
 score_to_grade(score)
 100 [["Pass",0.5],["Fail",0.0]]
-testCase05
+Pass
+course_score_to_grade_test
