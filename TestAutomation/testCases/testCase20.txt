@@ -1,0 +1,7 @@
+20
+Correctly calculates a grade on a percent assignment and non-nil points possible
+Assignment
+score_to_grade(score=0.0, given_grade=nil)
+percent 100 59.78
+59.78%
+assignment_score_to_grade_test

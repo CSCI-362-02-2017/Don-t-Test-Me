@@ -3,4 +3,5 @@ Calculates points when the missing submission deduction is 50%, the points possi
 LatePolicy
 points_for_missing(points_possible, grading_type)
 50 80 string
-testCase12
+40
+late_policy_points_for_missing_test
