@@ -16,7 +16,12 @@
 # with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
+require 'active_record'
+require 'activerecord-tableless'
+
 class LatePolicy < ActiveRecord::Base
+  has_no_table
+
   belongs_to :course, inverse_of: :late_policy
 
   validates :course_id,

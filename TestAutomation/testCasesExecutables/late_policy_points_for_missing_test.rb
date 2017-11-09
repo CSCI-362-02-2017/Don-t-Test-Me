@@ -19,8 +19,8 @@ class LatePolicyPointsForMissingTest < Testatron
 	end
 
 	def run
-
-		super()
+		late_policy = LatePolicy.new()
+		super(true)
 	end
 end
 
