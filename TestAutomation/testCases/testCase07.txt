@@ -3,5 +3,5 @@ Calculates the points to be deducted when the missing submission deduction is 50
 LatePolicy
 missing_points_deducted(points_possible, grading_type)
 50 80 string
-40
+40.0
 late_policy_missing_points_deducted_test
