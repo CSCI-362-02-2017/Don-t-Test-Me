@@ -21,21 +21,13 @@ require 'csv'
 require 'active_record'
 require 'activerecord-tableless'
 
-require_relative 'lib/context'
-require_relative 'lib/workflow'
-require_relative 'lib/time_zone_helper'
-require_relative 'lib/learning_outcome_context'
-require_relative 'lib/rubric_context'
-require_relative 'lib/active_record'
-require_relative 'lib/content_notices'
-
 class Course < ActiveRecord::Base
   has_no_table
-  include Context
-  include Workflow
+  #include Context
+  #include Workflow
   #include TextHelper
   #include HtmlTextHelper
-  include TimeZoneHelper
+  #include TimeZoneHelper
   #include ContentLicenses
   #include TurnitinID
   #include Courses::ItemVisibilityHelper
@@ -43,7 +35,7 @@ class Course < ActiveRecord::Base
   attr_accessor :teacher_names, :master_course
   attr_writer :student_count, :primary_enrollment_type, :primary_enrollment_role_id, :primary_enrollment_rank, :primary_enrollment_state, :primary_enrollment_date, :invitation, :updating_master_template_id
 
-  time_zone_attribute :time_zone
+  #time_zone_attribute :time_zone
   def time_zone
     if read_attribute(:time_zone)
       super
@@ -123,8 +115,8 @@ class Course < ActiveRecord::Base
   has_many :student_view_students, :through => :student_view_enrollments, :source => :user
   has_many :custom_gradebook_columns, -> { order('custom_gradebook_columns.position, custom_gradebook_columns.title') }, dependent: :destroy
 
-  include LearningOutcomeContext
-  include RubricContext
+  #include LearningOutcomeContext
+  #include RubricContext
 
   has_many :course_account_associations
   has_many :non_unique_associated_accounts, -> { order('course_account_associations.depth') }, source: :account, through: :course_account_associations
@@ -225,10 +217,10 @@ class Course < ActiveRecord::Base
   validate :validate_course_dates
   validate :validate_course_image
   validates_presence_of :account_id, :root_account_id, :enrollment_term_id, :workflow_state
-  validates_length_of :syllabus_body, :maximum => maximum_long_text_length, :allow_nil => true, :allow_blank => true
-  validates_length_of :name, :maximum => maximum_string_length, :allow_nil => true, :allow_blank => true
-  validates_length_of :sis_source_id, :maximum => maximum_string_length, :allow_nil => true, :allow_blank => false
-  validates_length_of :course_code, :maximum => maximum_string_length, :allow_nil => true, :allow_blank => true
+  #validates_length_of :syllabus_body, :maximum => maximum_long_text_length, :allow_nil => true, :allow_blank => true
+  #validates_length_of :name, :maximum => maximum_string_length, :allow_nil => true, :allow_blank => true
+  #validates_length_of :sis_source_id, :maximum => maximum_string_length, :allow_nil => true, :allow_blank => false
+  #validates_length_of :course_code, :maximum => maximum_string_length, :allow_nil => true, :allow_blank => true
   #validates_locale :allow_nil => true
 
   #sanitize_field :syllabus_body, CanvasSanitize::SANITIZE
@@ -238,14 +230,14 @@ class Course < ActiveRecord::Base
 
   #include FeatureFlags
 
-  include ContentNotices
-  define_content_notice :import_in_progress,
-    icon_class: 'icon-import-content',
-    alert_class: 'alert-info import-in-progress-notice',
-    template: 'courses/import_in_progress_notice',
-    should_show: ->(course, user) do
-      course.grants_right?(user, :manage_content)
-    end
+  #include ContentNotices
+  #define_content_notice :import_in_progress,
+  #  icon_class: 'icon-import-content',
+  #  alert_class: 'alert-info import-in-progress-notice',
+  #  template: 'courses/import_in_progress_notice',
+  #  should_show: ->(course, user) do
+  #    course.grants_right?(user, :manage_content)
+  #  end
 
   #has_a_broadcast_policy
 
@@ -1166,28 +1158,28 @@ class Course < ActiveRecord::Base
     end
   end
 
-  workflow do
-    state :created do
-      event :claim, :transitions_to => :claimed
-      event :offer, :transitions_to => :available
-      event :complete, :transitions_to => :completed
-    end
+  #workflow do
+  #  state :created do
+  #    event :claim, :transitions_to => :claimed
+  #    event :offer, :transitions_to => :available
+  #    event :complete, :transitions_to => :completed
+  #  end
 
-    state :claimed do
-      event :offer, :transitions_to => :available
-      event :complete, :transitions_to => :completed
-    end
+  #  state :claimed do
+  #    event :offer, :transitions_to => :available
+  #    event :complete, :transitions_to => :completed
+  #  end
 
-    state :available do
-      event :complete, :transitions_to => :completed
-      event :claim, :transitions_to => :claimed
-    end
+  #  state :available do
+  #    event :complete, :transitions_to => :completed
+  #    event :claim, :transitions_to => :claimed
+  #  end
 
-    state :completed do
-      event :unconclude, :transitions_to => :available
-    end
-    state :deleted
-  end
+  #  state :completed do
+  #    event :unconclude, :transitions_to => :available
+  #  end
+  #  state :deleted
+  #end
 
   def api_state
     return 'unpublished' if workflow_state == 'created' || workflow_state == 'claimed'

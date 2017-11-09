@@ -21,7 +21,7 @@ require 'activerecord-tableless'
 
 class GradingStandard < ActiveRecord::Base
   has_no_table
-  include Workflow
+  #include Workflow
 
   attr_accessor :version, :data
 
@@ -56,10 +56,10 @@ class GradingStandard < ActiveRecord::Base
 
   before_save :update_usage_count
 
-  workflow do
-    state :active
-    state :deleted
-  end
+  #workflow do
+  #  state :active
+  #  state :deleted
+  #end
 
   scope :active, -> { where("grading_standards.workflow_state<>'deleted'") }
   scope :sorted, -> { order("usage_count >= 3 DESC").order(nulls(:last, best_unicode_collation_key('title'))) }
