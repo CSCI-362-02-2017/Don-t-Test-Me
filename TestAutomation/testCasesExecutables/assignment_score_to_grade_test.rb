@@ -7,7 +7,7 @@
 require_relative '../project/testatron'
 
 # Require Necessary Canvas Classes
-require_relative '../project/late_policy'
+require_relative '../project/assignment'
 
 # Require Necessary Libraries
 require 'json'
@@ -19,8 +19,8 @@ class AssignmentScoreToGradeTest < Testatron
 	end
 
 	def run
-
-		super()
+		assignment = Assignment.new()
+		super(true)
 	end
 end
 
