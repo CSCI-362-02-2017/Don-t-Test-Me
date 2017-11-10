@@ -25,10 +25,11 @@ require 'activerecord-tableless'
 #require_dependency 'turnitin'
 #require_dependency 'vericite'
 
+require_relative 'lib/text_helper'
 class Assignment < ActiveRecord::Base
   has_no_table
   #include Workflow
-  #include TextHelper
+  include TextHelper
   #include HasContentTags
   #include CopyAuthorizedLinks
   #include Mutable
