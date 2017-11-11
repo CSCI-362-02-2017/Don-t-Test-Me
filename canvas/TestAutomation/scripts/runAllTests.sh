@@ -4,9 +4,13 @@
 # Run From:     Don-t-Test-Me/TestAutomation as ./scripts/runAllTests.sh #
 #========================================================================#
 
-rm -f ./reports/testReport.html
-# TODO: Clear all files from ./temp/
+# Set $GEM_HOME for Rails Runner
+export GEM_HOME=~/.gems
 
+# Delete Old Report
+rm -f ./reports/testReport.html
+
+# Create New Report
 touch ./reports/testReport.html
 cat ./scripts/reportHeader.html >> ./reports/testReport.html
 
@@ -16,7 +20,7 @@ for f in testCase01.txt testCase02.txt testCase03.txt testCase04.txt testCase05.
 do
 	readarray -t array < $f
         
-        IFS=';' read result methodReturn <<< "$(ruby ../testCasesExecutables/${array[6]}.rb "${array[4]}" "${array[5]}")"
+        IFS=';' read result methodReturn <<< "$($GEM_HOME/bin/rails r TestAutomation/testCasesExecutables/${array[6]}.rb "${array[4]}" "${array[5]}")"
 	
 	if [ $result == "Pass" ]; then
 		class="success"
