@@ -7,9 +7,6 @@
 # Require Testing Class
 require_relative '../project/testatron'
 
-# Require Necessary Libraries
-require 'json'
-
 class CourseScoreToGradeTest < Testatron
   
 	def initialize
