@@ -6,21 +6,19 @@
 # Require Testing Class
 require_relative '../project/testatron'
 
-# Require Necessary Canvas Classes
-require_relative '../project/assignment'
-
-# Require Necessary Libraries
-require 'json'
-
 class AssignmentScoreToGradeTest < Testatron
   
 	def initialize
-		super(2)
+		#Assignment.destroy_all
+		super(3)
 	end
 
 	def run
 		assignment = Assignment.new()
-		super(true)
+		assignment.grading_type = @params[0]
+		assignment.points_possible = @params[1].to_i
+		assignment.context = Course.new()
+		super(assignment.score_to_grade(@params[2]))
 	end
 end
 
