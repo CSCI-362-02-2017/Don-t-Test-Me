@@ -21,6 +21,8 @@ require 'activerecord-tableless'
 
 class LatePolicy < ActiveRecord::Base
   has_no_table
+  
+  attr_accessor :missing_submission_deduction
 
   belongs_to :course, inverse_of: :late_policy
 
