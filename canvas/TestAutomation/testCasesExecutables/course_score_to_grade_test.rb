@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 #=======================================================#
 # Team Name:    Don't Test Me                           #
 # Team Members: Kenneth Dela Cruz, Kyle Glick, Sam Word #
@@ -25,4 +24,3 @@ class CourseScoreToGradeTest < Testatron
 end
 
 CourseScoreToGradeTest.new().run()
-
