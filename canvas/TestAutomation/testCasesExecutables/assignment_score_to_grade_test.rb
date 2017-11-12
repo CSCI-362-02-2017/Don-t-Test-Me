@@ -9,7 +9,6 @@ require_relative '../project/testatron'
 class AssignmentScoreToGradeTest < Testatron
   
 	def initialize
-		#Assignment.destroy_all
 		super(3)
 	end
 
