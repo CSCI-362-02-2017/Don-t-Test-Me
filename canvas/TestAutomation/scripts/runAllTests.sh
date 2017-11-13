@@ -16,12 +16,12 @@ cat ./scripts/reportHeader.html >> ./reports/testReport.html
 
 # TODO: Loop over files in ./testCases/ with .txt but not .txt.example (not just first 5)
 cd testCases/
-for f in testCase21.txt testCase22.txt testCase23.txt testCase24.txt testCase25.txt
+for f in *.txt
 
 do
 	readarray -t array < $f
         
-        IFS=';' read result methodReturn <<< "$($GEM_HOME/bin/rails r TestAutomation/testCasesExecutables/${array[6]}.rb "${array[4]}" "${array[5]}")"
+	IFS=';' read result methodReturn <<< "$($GEM_HOME/bin/rails r TestAutomation/testCasesExecutables/${array[6]}.rb "${array[4]}" "${array[5]}")"
 	
 	if [ $result == "Pass" ]; then
 		class="success"
