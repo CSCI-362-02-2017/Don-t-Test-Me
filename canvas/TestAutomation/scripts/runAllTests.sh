@@ -16,7 +16,8 @@ cat ./scripts/reportHeader.html >> ./reports/testReport.html
 
 # TODO: Loop over files in ./testCases/ with .txt but not .txt.example (not just first 5)
 cd testCases/
-for f in testCase01.txt testCase02.txt testCase03.txt testCase04.txt testCase05.txt
+for f in testCase21.txt testCase22.txt testCase23.txt testCase24.txt testCase25.txt
+
 do
 	readarray -t array < $f
         
