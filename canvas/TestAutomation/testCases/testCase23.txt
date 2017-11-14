@@ -2,6 +2,6 @@
 Ignores assignments that are not meant to be graded
 LatePolicy
 points_deducted(score: nil, possible: 0.0, late_for: 0.0, grading_type: nil)
-5.0 hour 10 nil 1 day not_graded
-0
-assignment_points_deducted_test
+5.0 hour true 10 100 1 day not_graded
+0.0
+late_policy_points_deducted_test
