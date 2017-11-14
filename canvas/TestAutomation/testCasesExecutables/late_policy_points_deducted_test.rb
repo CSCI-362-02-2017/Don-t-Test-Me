@@ -9,6 +9,7 @@ require_relative '../project/testatron'
 class LatePolicyPointsDeductedTest < Testatron
   
 	def initialize
+    LatePolicy.destroy_all
 		super(8)
 	end
 
