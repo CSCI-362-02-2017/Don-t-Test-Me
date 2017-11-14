@@ -6,21 +6,15 @@
 # Require Testing Class
 require_relative '../project/testatron'
 
-# Require Necessary Canvas Classes
-require_relative '../project/late_policy'
-
-# Require Necessary Libraries
-require 'json'
-
 class LatePolicyPointsForMissingTest < Testatron
   
 	def initialize
-		super(2)
+		super(3)
 	end
 
 	def run
-		late_policy = LatePolicy.new()
-		super(true)
+		policy = LatePolicy.create(missing_submission_deduction: @params[0].to_i)
+		super(policy.points_for_missing(@params[1].to_i, @params[2]).to_s)
 	end
 end
 
