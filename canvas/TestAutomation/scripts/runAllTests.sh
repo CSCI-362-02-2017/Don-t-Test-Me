@@ -20,8 +20,7 @@ touch ./reports/testReport.html
 cat ./scripts/reportHeader.html >> ./reports/testReport.html
 
 cd testCases/
-for f in *.txt
-
+for f in testCase[0-9]**[0-9].txt
 do
 	readarray -t array < $f
         
