@@ -74,3 +74,7 @@ Press `<3>` when prompted if you want to log data for Canvas
 cd TestAutomation
 ./scripts/runAllTests.sh
 ```
+
+**Note that** `TestAutomation/` **is inside the** `canvas/` **directory.**
+
+Do not rename `canvas/` and do not move `TestAutomation/` outside of `canvas/`. If you do, our test suite will not run.
