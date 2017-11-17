@@ -940,7 +940,7 @@ class Assignment < ActiveRecord::Base
     case self.grading_type
     when "percent"
       result = "#{round_if_whole(score_to_grade_percent(score))}%"
-		#when"pass_fail" #Original
+	#when"pass_fail" #Original
     when "pass fail" #Fault Injection
 		passed = if points_possible && points_possible > 0
 		score.to_f > 0

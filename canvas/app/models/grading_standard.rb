@@ -115,7 +115,8 @@ class GradingStandard < ActiveRecord::Base
 
   # e.g. convert 89.7 to B+
   def score_to_grade(score)
-    score = 0 if score < 0
+   #score = 0 if score < 0 #Original
+    score = 0 unless score < 0 #Fault
     # assign the highest grade whose min cutoff is less than the score
     # if score is less than all scheme cutoffs, assign the lowest grade
     score = BigDecimal.new(score.to_s) # Cast this to a BigDecimal too or comparisons get wonky
