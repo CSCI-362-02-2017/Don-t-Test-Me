@@ -45,7 +45,8 @@ class LatePolicy < ActiveRecord::Base
   end
 
   def missing_points_deducted(points_possible, grading_type)
-    return points_possible.to_f if grading_type == 'pass_fail'
+    #return points_possible.to_f if grading_type == 'pass_fail' #Original
+    return points_possible.to_f if grading_type == 'pass fail' #Fault Injection
     points_possible.to_f * missing_submission_deduction.to_f / 100
   end
 
