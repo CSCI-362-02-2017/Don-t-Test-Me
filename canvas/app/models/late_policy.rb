@@ -51,7 +51,8 @@ class LatePolicy < ActiveRecord::Base
   end
 
   def points_for_missing(points_possible, grading_type)
-    points_possible.to_f + missing_points_deducted(points_possible, grading_type)
+    # points_possible.to_f - missing_points_deducted(points_possible, grading_type) #Original
+    points_possible.to_f + missing_points_deducted(points_possible, grading_type) #Fault Injection
   end
 
   private
