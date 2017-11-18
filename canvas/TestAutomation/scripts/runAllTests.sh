@@ -4,6 +4,11 @@
 # Run From:     Don-t-Test-Me/TestAutomation as ./scripts/runAllTests.sh #
 #========================================================================#
 
+# Variables
+PASS='\033[0;32m'
+FAIL='\033[0;31m'
+NOC='\033[0m'
+
 # Set $GEM_HOME for Rails Runner
 export GEM_HOME=~/.gems
 
@@ -14,20 +19,20 @@ rm -f ./reports/testReport.html
 touch ./reports/testReport.html
 cat ./scripts/reportHeader.html >> ./reports/testReport.html
 
-# TODO: Loop over files in ./testCases/ with .txt but not .txt.example (not just first 5)
 cd testCases/
-for f in *.txt
-
+for f in testCase[0-9]**[0-9].txt
 do
 	readarray -t array < $f
         
-	IFS=';' read result methodReturn <<< "$($GEM_HOME/bin/rails r TestAutomation/testCasesExecutables/${array[6]}.rb "${array[4]}" "${array[5]}")"
+	echo "Running test ${array[0]} - ${array[6]}.rb"
+        IFS=';' read result methodReturn <<< "$($GEM_HOME/bin/rails r TestAutomation/testCasesExecutables/${array[6]}.rb "${array[4]}" "${array[5]}")"
 	
 	if [ $result == "Pass" ]; then
 		class="success"
-
+                echo -e "${PASS}${result}${NOC}"
 	else
 		class="danger"
+                echo -e "${FAIL}${result}${NOC}"
 	fi
 
 	echo "<tr class=\"${class}\"><td>${array[0]}</td>" >> ../reports/testReport.html
