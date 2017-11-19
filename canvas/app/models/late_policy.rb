@@ -33,7 +33,8 @@ class LatePolicy < ActiveRecord::Base
 
   def points_deducted(score: nil, possible: 0.0, late_for: 0.0, grading_type: nil)
     return 0.0 unless late_submission_deduction_enabled && score && possible&.positive? && late_for&.positive?
-    return 0.0 unless Assignment::POINTED_GRADING_TYPES.include?(grading_type)
+    #return 0.0 unless Assignment::POINTED_GRADING_TYPES.include?(grading_type) #Original
+    return 0.0 if Assignment::POINTED_GRADING_TYPES.include?(grading_type) #Fault Injection
 
     intervals_late = (late_for / interval_seconds).ceil
     minimum_percent = late_submission_minimum_percent_enabled ? late_submission_minimum_percent : 0.0
@@ -44,12 +45,14 @@ class LatePolicy < ActiveRecord::Base
   end
 
   def missing_points_deducted(points_possible, grading_type)
-    return points_possible.to_f if grading_type == 'pass_fail'
+    #return points_possible.to_f if grading_type == 'pass_fail' #Original
+    return points_possible.to_f if grading_type == 'pass fail' #Fault Injection
     points_possible.to_f * missing_submission_deduction.to_f / 100
   end
 
   def points_for_missing(points_possible, grading_type)
-    points_possible.to_f - missing_points_deducted(points_possible, grading_type)
+    # points_possible.to_f - missing_points_deducted(points_possible, grading_type) #Original
+    points_possible.to_f + missing_points_deducted(points_possible, grading_type) #Fault Injection
   end
 
   private

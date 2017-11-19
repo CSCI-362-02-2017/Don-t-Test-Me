@@ -1,7 +1,7 @@
 06
-Calculates the points to be deducted when the missing submission deduction is 100%, the points possible is 80 points, and the grading scale is Pass or Fail
+Calculates the points to be deducted when the missing submission deduction is 0%, the points possible is 80 points, and the grading scale is Pass or Fail
 LatePolicy
 missing_points_deducted(points_possible, grading_type)
-100 80 pass_fail
+0 80 pass_fail
 80.0
 late_policy_missing_points_deducted_test
