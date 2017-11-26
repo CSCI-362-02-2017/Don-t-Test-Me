@@ -1,7 +1,7 @@
-TESTID
-TEST REQUIREMENT/DESCRIPTION GOES HERE
-TESTMODEL
-TESTMETHOD
-PARAM PARAM PARAM
-ORACLE
-DRIVER_TEST
+Test ID
+Test Requirements
+Test Model
+Test Method
+Test Parameters
+Test Oracle
+Test Executable Name
